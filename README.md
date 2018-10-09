@@ -1,5 +1,5 @@
 # HEALTH_DIARY
-HEALTH_DIARY
+Record all my fitness training
 
 # Usage framework and library
 SpringBoot, JPA, Hibernate, Mysql, JWT
