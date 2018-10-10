@@ -17,16 +17,8 @@ public class HealthService {
     @Autowired
     HealthRepository healthRepository;
 
-    @Autowired
-    CampRepository campRepository;
-
-    @Autowired
-    UserRepository userRepository;
-
-    public void addHealth(UserPrincipal currentUser, HealthRequest healthRequest) {
-
-        /*User user = userRepository.findByEmail(currentUser.getEmail()).orElseThrow(() ->
-                new UsernameNotFoundException("user not found with email"));*/
+    public void addHealth(UserPrincipal currentUser, HealthRequest healthRequest)
+    {
         Health health = new Health();
         health.setName(healthRequest.getName());
         health.setIsAnaerobic(healthRequest.getIsAnaerobic());
@@ -35,27 +27,10 @@ public class HealthService {
         healthRepository.save(health);
     }
 
-    public List<Health> getHealths() {
+    public List<Health> getHealths()
+    {
         List<Health> result = healthRepository.findAll();
 
         return result;
     }
-
-
-    /* public void addFacilitiesToCampsite(FacilitiesToCampsiteRequest facilitiesMappingRequest, String campsiteCode) {
-         Campsite campsite = campRepository.findByCompanyCode(campsiteCode).get(0);
-         FacilitiesMapping facilitiesMapping = new FacilitiesMapping(
-                 facilitiesMappingRequest.getFacilitiesId(),
-                 campsite.getId()
-         );
-
-         facilitiesMappingRepository.save(facilitiesMapping);
-     }
- */
-    /*public List<Facilities> getFacilitiesList() {
-        List<Facilities> result = facilitiesRepository.findAll();
-
-        return result;
-    }*/
-
 }
